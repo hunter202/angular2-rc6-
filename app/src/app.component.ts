@@ -1,13 +1,21 @@
 import {Component} from '@angular/core';
+import {user} from './Users'; 
+}
   
 @Component({
     selector: 'app',
-    template: `<h1>Hello {{ name }}!</h1>`
+    template: `<ul>
+               <li *ngFor="let rate of raters">{{rate.firstname}} 
+               {{rate.rating}}   </li>
+    </ul>`
 })
 export class AppComponent {
     name: string;
-  
-    constructor() {
-        this.name = 'Angular 2';
-    }
+    rates: number[]=[1,2,3,4,5];
+
+    public raters=[
+      new user('swastik',0),
+      new user('hunter',0),
+      new user('pex',0)
+    ];
 }
